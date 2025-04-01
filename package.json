@@ -1,0 +1,39 @@
+{
+  "name": "writings",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://chat-ting.github.io/chat-ting.github.io/",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@frfla/react-md-renderer": "^0.0.8",
+    "@stitches/react": "^1.2.8",
+    "gh-pages": "^6.3.0",
+    "next": "15.2.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.3",
+    "typescript": "^5"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 120,
+    "useTabs": false,
+    "singleQuote": true,
+    "semi": false,
+    "arrowParens": "avoid",
+    "trailingComma": "es5"
+  }
+}
