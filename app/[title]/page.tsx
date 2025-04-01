@@ -9,7 +9,7 @@ type Props = {
 
 export async function generateStaticParams() {
   return titles.map(t => ({
-    slug: t,
+    title: t,
   }))
 }
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 
 export default async function Page({ params }: Props) {
   const { title } = await params
-  const matchFile = writingsWithFileType.find(v => v === title)
+  const matchFile = writingsWithFileType.find(v => v.includes(title))
   const url = getUrl(matchFile ?? '')
   const resp = await fetch(url)
   const md = await resp.text()
