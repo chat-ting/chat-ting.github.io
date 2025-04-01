@@ -1,12 +1,12 @@
 {
-  "name": "writings",
+  "name": "chat-ting-portfolio",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://chat-ting.github.io/chat-ting.github.io/",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
