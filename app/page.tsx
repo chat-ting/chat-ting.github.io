@@ -6,7 +6,7 @@ export default async function Page() {
     <ul>
       {titles.map(title => (
         <li key={title}>
-          <Link href={`/writings/${title}`}>{title}</Link>
+          <Link href={`/${title}`}>{title}</Link>
         </li>
       ))}
     </ul>
