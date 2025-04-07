@@ -9,17 +9,18 @@ type Props = {
 
 export async function generateStaticParams() {
   return titles.map(t => ({
-    title: t,
+    title: encodeURI(t),
   }))
 }
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const { title } = await params
-
   const previousImages = (await parent).openGraph?.images || []
+  const decodedParam = decodeURIComponent(title).split('-').join(' ')
+  const TITLE = `chat-ting / ${decodedParam}`
 
   return {
-    title,
+    title: TITLE,
     openGraph: {
       images: [...previousImages],
     },
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 
 export default async function Page({ params }: Props) {
   const { title } = await params
-  const matchFile = writingsWithFileType.find(v => v.includes(title))
+  const matchFile = writingsWithFileType.find(v => v.includes(decodeURIComponent(title)))
   const url = getUrl(matchFile ?? '')
   const resp = await fetch(url)
   const md = await resp.text()
