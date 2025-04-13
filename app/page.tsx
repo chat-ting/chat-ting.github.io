@@ -8,23 +8,23 @@ export default async function Page() {
       <ul>
         <h2>레포지토리</h2>
         <li>
-          <Link href="https://github.com/chat-ting/client.app" target="_blank">
-            frontend application
+          <Link href="https://github.com/chat-ting/client.desktop" target="_blank">
+            frontend application(Nextjs / Electron)
           </Link>
         </li>
         <li>
-          <Link href="https://github.com/chat-ting/chat" target="_blank">
-            backend (chat)
-          </Link>
-        </li>
-        <li>
-          <Link href="https://github.com/chat-ting/member" target="_blank">
-            backend (member)
+          <Link href="https://github.com/chat-ting/client.mobile" target="_blank">
+            frontend application(RN)
           </Link>
         </li>
         <li>
           <Link href="https://github.com/chat-ting/member" target="_blank">
             backend (member)
+          </Link>
+        </li>
+        <li>
+          <Link href="https://github.com/chat-ting/member" target="_blank">
+            Infra
           </Link>
         </li>
         <h2>기술 문서</h2>
