@@ -30,7 +30,7 @@ export default async function Page() {
         <h2>기술 문서</h2>
         {titles.map(title => (
           <li key={title}>
-            <Link href={`/${title}`}>{title}</Link>
+            <Link href={`/${encodeURIComponent(title)}`}>{title}</Link>
           </li>
         ))}
       </ul>

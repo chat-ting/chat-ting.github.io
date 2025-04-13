@@ -8,16 +8,18 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  return titles.map(t => ({
-    title: encodeURIComponent(t),
-  }))
+  return titles.map(t => {
+    return {
+      title: encodeURIComponent(t),
+    }
+  })
 }
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const { title } = await params
   const previousImages = (await parent).openGraph?.images || []
   const decodedParam = decodeURIComponent(title).split('-').join(' ')
-  const TITLE = `chat-ting / ${decodedParam}`
+  const TITLE = `${decodedParam} - chat-ting`
 
   return {
     title: TITLE,
@@ -32,7 +34,7 @@ export default async function Page({ params }: Props) {
   const matchFile = writingsWithFileType.find(v => v.includes(decodeURIComponent(title)))
   const url = getUrl(matchFile ?? '')
   const resp = await fetch(url)
-  const md = await resp.text()
+  const md = (await resp.text()) ?? '# 페이지가 없어요'
 
   return <MD markdownText={md} />
 }

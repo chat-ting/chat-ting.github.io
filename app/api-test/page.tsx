@@ -8,7 +8,7 @@ export default async function Page() {
       <div>글 리스트</div>
       {titles.map(title => (
         <li key={title}>
-          <Link href={`/${title}`}>{title}</Link>
+          <Link href={`/${encodeURIComponent(title)}`}>{title}</Link>
         </li>
       ))}
     </ul>
