@@ -9,7 +9,7 @@ type Props = {
 
 export async function generateStaticParams() {
   return titles.map(t => ({
-    title: encodeURI(t),
+    title: encodeURIComponent(t),
   }))
 }
 
