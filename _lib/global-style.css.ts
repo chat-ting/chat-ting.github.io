@@ -1,7 +1,14 @@
 import { globalStyle } from '@vanilla-extract/css'
 
 globalStyle('*, *::before, *::after', { margin: 0, padding: 0, boxSizing: 'border-box' })
-
+globalStyle('body', {
+  width: '100%',
+  height: 'auto',
+  WebkitTextSizeAdjust: '100%',
+  MozTextSizeAdjust: '100%',
+  MozOsxFontSmoothing: 'grayscale',
+  WebkitFontSmoothing: 'antialiased',
+})
 globalStyle('h1, h2, h3, h4, h5, h6, p, span', {
   fontFamily: '"42dot Sans", sans-serif',
 })
