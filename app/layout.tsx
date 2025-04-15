@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { setGlobalStyle } from '~/_lib/global-style.css'
-import { getCssText } from '~/stitches.config'
+import '~/_lib/global-style.css'
 
 export const metadata: Metadata = {
   title: 'chat-ting',
@@ -12,11 +11,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  setGlobalStyle()
   return (
     <html lang="ko">
       <head>
-        <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }}></style>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Space+Mono&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>{children}</body>
     </html>

@@ -1,18 +1,25 @@
-import { globalCss } from '~/stitches.config'
+import { globalStyle } from '@vanilla-extract/css'
 
-export const setGlobalStyle = globalCss({
-  '@import': `url("https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard-dynamic-subset.min.css")`,
-  'html, body, h1, h2, h3, h4, h5, h6, p, input, button, textarea, code, pre': {
-    margin: 0,
-    padding: 0,
-    color: 'inherit',
-    fontFamily: '"Pretendard", sans-serif',
-  },
-  '*, *:before, *:after': {
-    boxSizing: 'border-box',
-  },
-  a: {
-    color: 'inherit',
-    textDecoration: 'none',
-  },
+globalStyle('*, *::before, *::after', { margin: 0, padding: 0, boxSizing: 'border-box' })
+
+globalStyle('h1, h2, h3, h4, h5, h6, p, span', {
+  fontFamily: '"42dot Sans", sans-serif',
+})
+globalStyle('p, span', {
+  lineHeight: 1.85,
+})
+globalStyle('input, button, textarea', {
+  fontFamily: '"42dot Sans", sans-serif',
+})
+globalStyle('html', {
+  fontSize: '100%',
+})
+globalStyle('a', {
+  fontFamily: '"42dot Sans", sans-serif',
+  color: 'inherit',
+  textDecoration: 'underline',
+  textUnderlineOffset: '0.25rem',
+})
+globalStyle('ul', {
+  paddingLeft: '1.1rem',
 })
