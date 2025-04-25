@@ -11,20 +11,22 @@ export default function Post() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!title) {
-      navigate('/');
-      return;
-    }
+    (async function () {
+      if (!title) {
+        navigate('/');
+        return;
+      }
 
-    setLoading(true);
-    const matchFile = writingsWithFileType.find(v => v.includes(decodeURIComponent(title)));
-    const url = getUrl(matchFile ?? '');
+      setLoading(true);
+      const matchFile = (await writingsWithFileType()).find(v => v.includes(decodeURIComponent(title)));
+      const url = getUrl(matchFile ?? '');
 
-    fetch(url)
-      .then(resp => resp.text())
-      .then(text => setMd(text ?? '# 페이지가 없어요'))
-      .catch(() => setMd('# 페이지가 없어요'))
-      .finally(() => setLoading(false));
+      fetch(url)
+        .then(resp => resp.text())
+        .then(text => setMd(text ?? '# 페이지가 없어요'))
+        .catch(() => setMd('# 페이지가 없어요'))
+        .finally(() => setLoading(false));
+    })();
   }, [title]);
 
   if (loading) return <div>...</div>;
